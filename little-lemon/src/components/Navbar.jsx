@@ -10,15 +10,25 @@ const Navbar = () => {
     setMenu(!showMenu);
   };
   return (
-    <div className='flex justify-between items-center p-4 max-w-[1240px] mx:auto h-24 text-1'>
+    <div className='flex justify-between items-center p-4 max-w-[1240px] mx-auto h-24 text-1'>
       <img src={Logo} alt='logo' />
 
       <ul className='md:flex hidden font-semibold text-gray-700'>
-        <li className='p-2'>Home</li>
-        <li className='p-2'>About</li>
-        <li className='p-2'>Menu</li>
-        <li className='p-2'>Reservations</li>
-        <li className='p-2'>Login</li>
+        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 cursor-pointer'>
+          Home
+        </li>
+        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 cursor-pointer'>
+          About
+        </li>
+        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 hover:text-white cursor-pointer'>
+          Menu
+        </li>
+        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 cursor-pointer'>
+          Reservations
+        </li>
+        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 cursor-pointer'>
+          Login
+        </li>
       </ul>
 
       <div className='block md:hidden' onClick={clickMenu}>
