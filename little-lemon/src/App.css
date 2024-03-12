@@ -1,0 +1,17 @@
+/* 样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 列表样式 */
+ul {
+  list-style: none;
+}
+/* 链接样式 */
+li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}

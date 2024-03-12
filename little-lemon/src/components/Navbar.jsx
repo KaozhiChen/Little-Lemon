@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Logo from '../assets/Logo.svg';
 import Hamburger from '../assets/hamburger.svg';
 import Close from '../assets/x-mark.svg';
+import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [showMenu, setMenu] = useState(true);
-
   const clickMenu = () => {
     setMenu(!showMenu);
   };
@@ -14,21 +14,57 @@ const Navbar = () => {
       <img src={Logo} alt='logo' />
 
       <ul className='md:flex hidden font-semibold text-gray-700'>
-        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 cursor-pointer'>
-          Home
-        </li>
-        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 cursor-pointer'>
-          About
-        </li>
-        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 hover:text-white cursor-pointer'>
-          Menu
-        </li>
-        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 cursor-pointer'>
-          Reservations
-        </li>
-        <li className='px-4 py-2 text-center  rounded-md hover:bg-green-700 cursor-pointer'>
-          Login
-        </li>
+        <NavLink
+          to='/home'
+          className={({ isActive }) =>
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+          }
+        >
+          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+            Home
+          </li>
+        </NavLink>
+        <NavLink
+          to='/about'
+          className={({ isActive }) =>
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+          }
+        >
+          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+            About
+          </li>
+        </NavLink>
+        <NavLink
+          to='/menu'
+          className={({ isActive }) =>
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+          }
+        >
+          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+            Menu
+          </li>
+        </NavLink>
+        <NavLink
+          to='/reservations'
+          className={({ isActive }) =>
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+          }
+        >
+          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+            Reservations
+          </li>
+        </NavLink>
+
+        <NavLink
+          to='/login'
+          className={({ isActive }) =>
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+          }
+        >
+          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+            Login
+          </li>
+        </NavLink>
       </ul>
 
       <div className='block md:hidden' onClick={clickMenu}>
