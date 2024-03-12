@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Logo from '../assets/Logo.svg';
 import Hamburger from '../assets/hamburger.svg';
 import Close from '../assets/x-mark.svg';
-import { NavLink, Link } from 'react-router-dom';
 import NavItem from './NavItem';
 
 const Navbar = () => {
-  const [showMenu, setMenu] = useState(true);
+  const [showMenu, setMenu] = useState(false);
   const clickMenu = () => {
     setMenu(!showMenu);
   };
