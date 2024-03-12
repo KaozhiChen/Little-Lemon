@@ -17,40 +17,40 @@ const Navbar = () => {
         <NavLink
           to='/home'
           className={({ isActive }) =>
-            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : 'mx-2'
           }
         >
-          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+          <li className='hover:text-gray-400 px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
             Home
           </li>
         </NavLink>
         <NavLink
           to='/about'
           className={({ isActive }) =>
-            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : 'mx-2'
           }
         >
-          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 hover:text-gray-400 cursor-pointer'>
             About
           </li>
         </NavLink>
         <NavLink
           to='/menu'
           className={({ isActive }) =>
-            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : 'mx-2'
           }
         >
-          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+          <li className='hover:text-gray-400 px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
             Menu
           </li>
         </NavLink>
         <NavLink
           to='/reservations'
           className={({ isActive }) =>
-            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : 'mx-2'
           }
         >
-          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+          <li className='hover:text-gray-400 px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
             Reservations
           </li>
         </NavLink>
@@ -58,10 +58,10 @@ const Navbar = () => {
         <NavLink
           to='/login'
           className={({ isActive }) =>
-            isActive ? 'bg-green-700 rounded-md text-white mx-2' : ''
+            isActive ? 'bg-green-700 rounded-md text-white mx-2' : 'mx-2'
           }
         >
-          <li className='px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
+          <li className='hover:text-gray-400 px-4 py-2 text-center active:bg-green-700 rounded-md hover:bg-green-700 cursor-pointer'>
             Login
           </li>
         </NavLink>
