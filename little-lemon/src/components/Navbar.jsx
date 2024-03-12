@@ -37,11 +37,15 @@ const Navbar = () => {
       >
         <img src={Logo} alt='logo' className='m-4' />
         <ul className='p-8'>
-          <li className='p-2'>Home</li>
-          <li className='p-2'>About</li>
-          <li className='p-2'>Menu</li>
-          <li className='p-2'>Reservations</li>
-          <li className='p-2'>Login</li>
+          <NavItem type='side' to='/home' pageName='Home'></NavItem>
+          <NavItem type='side' to='/about' pageName='About'></NavItem>
+          <NavItem type='side' to='/menu' pageName='Menu'></NavItem>
+          <NavItem
+            type='side'
+            to='/reservations'
+            pageName='Reservations'
+          ></NavItem>
+          <NavItem type='side' to='/login' pageName='Login'></NavItem>
         </ul>
       </div>
     </div>
