@@ -1,7 +1,9 @@
+import Hero from '../components/Hero';
+
 const Homepage = () => {
   return (
     <>
-      <div>我是home page</div>
+      <Hero />
     </>
   );
 };

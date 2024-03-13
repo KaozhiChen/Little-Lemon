@@ -10,7 +10,7 @@ const Navbar = () => {
     setMenu(!showMenu);
   };
   return (
-    <div className='flex justify-between items-center p-4 max-w-[1240px] mx-auto h-24 text-1'>
+    <div className='flex justify-between items-center py-4 max-w-[1240px] mx-auto h-24 text-1'>
       <img src={Logo} alt='logo' />
       <ul className='md:flex hidden font-semibold text-gray-700'>
         <NavItem to='/home' pageName='Home'></NavItem>
