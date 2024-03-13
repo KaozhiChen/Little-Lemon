@@ -1,10 +1,12 @@
 import Hero from '../components/Hero';
-import Special from '../components/special';
+import Testimonials from '../components/Testimonials';
+import Special from '../components/Special';
 const Homepage = () => {
   return (
     <>
       <Hero />
       <Special />
+      <Testimonials />
     </>
   );
 };

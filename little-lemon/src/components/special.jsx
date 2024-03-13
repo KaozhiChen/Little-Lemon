@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const special = () => {
+const Special = () => {
   return (
     <div className='mx-auto  max-w-[1240px] '>
       <div className='flex align-center px-4 py-16 justify-between '>
@@ -21,4 +21,4 @@ const special = () => {
   );
 };
 
-export default special;
+export default Special;
