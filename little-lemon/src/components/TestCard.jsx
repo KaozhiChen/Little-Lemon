@@ -4,7 +4,7 @@ import Man from '../assets/man.png';
 const TestCard = () => {
   return (
     <>
-      <div className='flex flex-col bg-gray-200 max-w-80 p-8 rounded-2xl'>
+      <div className='flex flex-col bg-gray-200 max-w-80 p-8 m-4 rounded-2xl'>
         <h1 className='font-semibold py-4 mb-4 text-2xl'>Rating</h1>
         <div className='flex items-center'>
           <img src={Man} alt='Img' className='max-w-24 mr-6' />
