@@ -28,15 +28,6 @@ const ReservationConfirm = () => {
     dispatch({ type: 'SET_EMAIL', payload: email });
     dispatch({ type: 'SET_REQUEST', payload: request });
     setShowDialog(true);
-    console.log('Reservation confirmed:');
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Phone:', phone);
-    console.log('Email:', email);
-    console.log('Request:', request);
-    console.log('Guests:', guests);
-    console.log('Date:', date);
-    console.log('Time:', time);
   };
   const handleConfirm = () => {
     setShowDialog(false);
@@ -151,17 +142,35 @@ const ReservationConfirm = () => {
       </div>
       <Dialog isOpen={showDialog} onClose={() => setShowDialog(false)}>
         {/* 对话框内容 */}
-        <h2 className='text-lg font-semibold mb-4'>Reservation Details</h2>
-        <p>First Name: {firstName}</p>
-        <p>Last Name: {lastName}</p>
-        <p>Phone: {phone}</p>
-        <p>Email: {email}</p>
-        <p>Special Request: {request}</p>
+
+        <div className=' max-w-[90%] space-y-1 flex flex-col items-start'>
+          <h2>
+            <span className='font-semibold mr-4'>Time:</span>
+            {date + ' ' + time}
+          </h2>
+          <p>
+            <span className='font-semibold mr-4'>First Name:</span> {firstName}
+          </p>
+          <p>
+            <span className='font-semibold mr-4'>Last Name:</span> {lastName}
+          </p>
+          <p>
+            <span className='font-semibold mr-4'>Phone:</span> {phone}
+          </p>
+          <p>
+            <span className='font-semibold mr-4'>Email:</span> {email}
+          </p>
+          <div className=' whitespace-normal'>
+            <span className='font-semibold mr-4 '>Special Request:</span>
+            <p>{request}</p>
+          </div>
+        </div>
+
         {/* 其他需要显示的内容 */}
         {/* 在这里添加你想要在对话框中显示的信息 */}
 
         {/* 操作按钮 */}
-        <div className='flex justify-end mt-6'>
+        <div className='flex justify-center mt-6 '>
           <button
             onClick={handleConfirm}
             className='bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
