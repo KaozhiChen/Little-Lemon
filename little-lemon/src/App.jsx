@@ -7,6 +7,7 @@ import Menu from './pages/Menu';
 import Reservations from './pages/Reservations';
 import Login from './pages/Login';
 import Footer from './components/Footer';
+import ReservationConfirm from './pages/ReservationConfirm';
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
         <Route path='/menu' element={<Menu />}></Route>
         <Route path='/reservations' element={<Reservations />}></Route>
         <Route path='/login' element={<Login />}></Route>
+        <Route
+          path='/reservation-confirm'
+          element={<ReservationConfirm />}
+        ></Route>
         {/* <Route
           path="/reservations"
           element={
