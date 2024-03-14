@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import Dialog from '../components/Dialog';
 
 const ReservationConfirm = () => {
   const [firstName, setFirstName] = useState('');
@@ -8,16 +9,41 @@ const ReservationConfirm = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [request, setRequest] = useState('');
+  const [showDialog, setShowDialog] = useState(false);
+
+  const dispatch = useDispatch();
+
   const guests = useSelector((state) => state.guests);
   const date = useSelector((state) => state.date);
   const time = useSelector((state) => state.time);
-  const handle = () => {
-    console.log(date, time);
+
+  const handleNext = () => {
+    // 将所有信息存储到Redux store中
+    dispatch({ type: 'SET_GUESTS', payload: guests });
+    dispatch({ type: 'SET_DATE', payload: date });
+    dispatch({ type: 'SET_TIME', payload: time });
+    dispatch({ type: 'SET_FIRST_NAME', payload: firstName });
+    dispatch({ type: 'SET_LAST_NAME', payload: lastName });
+    dispatch({ type: 'SET_PHONE', payload: phone });
+    dispatch({ type: 'SET_EMAIL', payload: email });
+    dispatch({ type: 'SET_REQUEST', payload: request });
+    setShowDialog(true);
+    console.log('Reservation confirmed:');
+    console.log('First Name:', firstName);
+    console.log('Last Name:', lastName);
+    console.log('Phone:', phone);
+    console.log('Email:', email);
+    console.log('Request:', request);
+    console.log('Guests:', guests);
+    console.log('Date:', date);
+    console.log('Time:', time);
+  };
+  const handleConfirm = () => {
+    setShowDialog(false);
   };
 
   return (
     <>
-      <button onClick={handle}>dianji</button>
       <div className='bg-green-600 py-4'>
         <h1 className='text-center font-semibold text-xl text-gray-100'>
           Reservation Details
@@ -109,6 +135,7 @@ const ReservationConfirm = () => {
                 <Link
                   className='flex-grow flex items-center justify-center'
                   to='/reservation-confirm'
+                  onClick={handleNext}
                 >
                   <button
                     className='bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
@@ -122,6 +149,27 @@ const ReservationConfirm = () => {
           </div>
         </div>
       </div>
+      <Dialog isOpen={showDialog} onClose={() => setShowDialog(false)}>
+        {/* 对话框内容 */}
+        <h2 className='text-lg font-semibold mb-4'>Reservation Details</h2>
+        <p>First Name: {firstName}</p>
+        <p>Last Name: {lastName}</p>
+        <p>Phone: {phone}</p>
+        <p>Email: {email}</p>
+        <p>Special Request: {request}</p>
+        {/* 其他需要显示的内容 */}
+        {/* 在这里添加你想要在对话框中显示的信息 */}
+
+        {/* 操作按钮 */}
+        <div className='flex justify-end mt-6'>
+          <button
+            onClick={handleConfirm}
+            className='bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
+          >
+            Confirm
+          </button>
+        </div>
+      </Dialog>
     </>
   );
 };
