@@ -6,13 +6,14 @@ import About from './pages/About';
 import Menu from './pages/Menu';
 import Reservations from './pages/Reservations';
 import Login from './pages/Login';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path='/home' element={<Homepage />}></Route>
+        <Route path='/' element={<Homepage />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/menu' element={<Menu />}></Route>
         <Route path='/reservations' element={<Reservations />}></Route>
@@ -28,6 +29,7 @@ function App() {
         ></Route>
         <Route path="/confirmed" element={<ConfirmedBookingPage />} /> */}
       </Routes>
+      <Footer />
     </>
   );
 }

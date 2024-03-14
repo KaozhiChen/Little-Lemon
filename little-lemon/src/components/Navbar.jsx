@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className='flex justify-between items-center p-4 max-w-[1240px] mx-auto h-24 text-1'>
       <img src={Logo} alt='logo' />
       <ul className='md:flex hidden font-semibold text-gray-700'>
-        <NavItem to='/home' pageName='Home'></NavItem>
+        <NavItem to='/' pageName='Home'></NavItem>
         <NavItem to='/about' pageName='About'></NavItem>
         <NavItem to='/menu' pageName='Menu'></NavItem>
         <NavItem to='/reservation' pageName='Reservations'></NavItem>
@@ -37,7 +37,7 @@ const Navbar = () => {
       >
         <img src={Logo} alt='logo' className='m-4' />
         <ul className='p-8'>
-          <NavItem type='side' to='/home' pageName='Home'></NavItem>
+          <NavItem type='side' to='/' pageName='Home'></NavItem>
           <NavItem type='side' to='/about' pageName='About'></NavItem>
           <NavItem type='side' to='/menu' pageName='Menu'></NavItem>
           <NavItem
