@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Dialog from '../components/Dialog';
+import Check from '../assets/check.svg';
 
 const ReservationConfirm = () => {
   const [firstName, setFirstName] = useState('');
@@ -10,6 +11,14 @@ const ReservationConfirm = () => {
   const [email, setEmail] = useState('');
   const [request, setRequest] = useState('');
   const [showDialog, setShowDialog] = useState(false);
+  const [isValid, setIsValid] = useState(false);
+  const [errors, setErrors] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+  });
+  const [reserveSuccess, setReserveSuccess] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -17,20 +26,46 @@ const ReservationConfirm = () => {
   const date = useSelector((state) => state.date);
   const time = useSelector((state) => state.time);
 
-  const handleNext = () => {
-    // 将所有信息存储到Redux store中
-    dispatch({ type: 'SET_GUESTS', payload: guests });
-    dispatch({ type: 'SET_DATE', payload: date });
-    dispatch({ type: 'SET_TIME', payload: time });
-    dispatch({ type: 'SET_FIRST_NAME', payload: firstName });
-    dispatch({ type: 'SET_LAST_NAME', payload: lastName });
-    dispatch({ type: 'SET_PHONE', payload: phone });
-    dispatch({ type: 'SET_EMAIL', payload: email });
-    dispatch({ type: 'SET_REQUEST', payload: request });
-    setShowDialog(true);
+  const validateForm = () => {
+    const phoneRegex = /^[0-9]{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const isFirstNameValid = firstName.trim() !== '';
+    const isLastNameValid = lastName.trim() !== '';
+    const isPhoneValid = phone.match(phoneRegex) !== null;
+    const isEmailValid = email.match(emailRegex) !== null;
+
+    const newErrors = {
+      firstName: isFirstNameValid ? '' : 'First Name is required',
+      lastName: isLastNameValid ? '' : 'Last Name is required',
+      phone: isPhoneValid ? '' : 'Please enter a valid phone number',
+      email: isEmailValid ? '' : 'Please enter a valid email address',
+    };
+
+    setErrors(newErrors);
+    setIsValid(
+      isFirstNameValid && isLastNameValid && isPhoneValid && isEmailValid
+    );
   };
+
+  const handleNext = () => {
+    validateForm();
+    if (isValid) {
+      dispatch({ type: 'SET_GUESTS', payload: guests });
+      dispatch({ type: 'SET_DATE', payload: date });
+      dispatch({ type: 'SET_TIME', payload: time });
+      dispatch({ type: 'SET_FIRST_NAME', payload: firstName });
+      dispatch({ type: 'SET_LAST_NAME', payload: lastName });
+      dispatch({ type: 'SET_PHONE', payload: phone });
+      dispatch({ type: 'SET_EMAIL', payload: email });
+      dispatch({ type: 'SET_REQUEST', payload: request });
+      setShowDialog(true);
+    }
+  };
+
   const handleConfirm = () => {
     setShowDialog(false);
+    setReserveSuccess(true);
   };
 
   return (
@@ -71,7 +106,9 @@ const ReservationConfirm = () => {
                   placeholder='First Name'
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
+                  onBlur={validateForm}
                 />
+                <span className='text-red-500 text-sm'>{errors.firstName}</span>
                 <input
                   className='shadow appearance-none border rounded w-[48%]  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                   id='lastName'
@@ -79,7 +116,9 @@ const ReservationConfirm = () => {
                   placeholder='Last Name'
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
+                  onBlur={validateForm}
                 />
+                <span className='text-red-500 text-sm'>{errors.lastName}</span>
               </div>
               <div className='mb-4'>
                 <input
@@ -89,7 +128,9 @@ const ReservationConfirm = () => {
                   placeholder='Phone Number'
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  onBlur={validateForm}
                 />
+                <span className='text-red-500 text-sm'>{errors.phone}</span>
               </div>
               <div className='mb-6'>
                 <input
@@ -99,7 +140,9 @@ const ReservationConfirm = () => {
                   value={email}
                   placeholder='Email Address'
                   onChange={(e) => setEmail(e.target.value)}
+                  onBlur={validateForm}
                 />
+                <span className='text-red-500 text-sm'>{errors.email}</span>
               </div>
               <div className='mb-6'>
                 <textarea
@@ -130,8 +173,13 @@ const ReservationConfirm = () => {
                   onClick={handleNext}
                 >
                   <button
-                    className='bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
+                    className={
+                      isValid
+                        ? 'bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
+                        : 'bg-gray-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
+                    }
                     style={{ minWidth: '120px' }}
+                    disabled={!isValid}
                   >
                     Next
                   </button>
@@ -175,6 +223,19 @@ const ReservationConfirm = () => {
           </button>
         </div>
       </Dialog>
+
+      {reserveSuccess && (
+        <Dialog isOpen={true} onClose={() => setReserveSuccess(false)}>
+          <div className='flex flex-col justify-center items-center h-full space-y-4 p-20'>
+            <div>
+              <img src={Check} alt='check' className='w-12 h-12' />
+            </div>
+            <h2 className='text-lg font-semibold text-center'>
+              Reservation Successful!
+            </h2>
+          </div>
+        </Dialog>
+      )}
     </>
   );
 };
