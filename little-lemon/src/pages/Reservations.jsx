@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const Reservations = () => {
   const [guests, setGuests] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+
+  const dispatch = useDispatch();
+  const handleNext = () => {
+    // 将数据存储到Redux store中
+    dispatch({ type: 'SET_GUESTS', payload: guests });
+    dispatch({ type: 'SET_DATE', payload: date });
+    dispatch({ type: 'SET_TIME', payload: time });
+  };
 
   return (
     <>
@@ -68,6 +77,7 @@ const Reservations = () => {
             <Link
               className='flex-grow flex items-center justify-center'
               to='/reservation-confirm'
+              onClick={handleNext}
             >
               <button
                 className='bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4'

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const ReservationConfirm = () => {
   const [firstName, setFirstName] = useState('');
@@ -7,9 +8,16 @@ const ReservationConfirm = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [request, setRequest] = useState('');
+  const guests = useSelector((state) => state.guests);
+  const date = useSelector((state) => state.date);
+  const time = useSelector((state) => state.time);
+  const handle = () => {
+    console.log(date, time);
+  };
 
   return (
     <>
+      <button onClick={handle}>dianji</button>
       <div className='bg-green-600 py-4'>
         <h1 className='text-center font-semibold text-xl text-gray-100'>
           Reservation Details
@@ -17,13 +25,18 @@ const ReservationConfirm = () => {
       </div>
       <div className='px-4'>
         <div className='bg-green-600 my-4 rounded-lg px-4 py-8 flex items-center justify-between'>
-          <div className='flex flex-col items-center px-12 py-4 bg-yellow-300 text-gray-100 font-bold rounded-lg'>
-            <span>23</span>
-            <span>Mon</span>
+          <div className='flex flex-col items-center px-8 py-4 bg-yellow-300 text-gray-100 font-bold rounded-lg'>
+            <span>{date}</span>
+            <span>{time}</span>
           </div>
-          <div className='text-gray-200 font-semibold'>
+          <div className='text-gray-200 font-semibold ml-2'>
             <h2 className='text-2xl'>Little Lemon</h2>
-            <p>Mon 7:00 PM party of 2</p>
+            <p>
+              <span>{date}</span> <span>{time}</span>
+            </p>
+            <div>
+              <span className='mr-2'>{guests}</span>customers
+            </div>
           </div>
         </div>
         <div>
