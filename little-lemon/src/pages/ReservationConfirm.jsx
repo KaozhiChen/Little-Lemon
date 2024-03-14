@@ -40,6 +40,7 @@ const ReservationConfirm = () => {
           Reservation Details
         </h1>
       </div>
+
       <div className='px-4'>
         <div className='bg-green-600 my-4 rounded-lg px-4 py-8 flex items-center justify-between'>
           <div className='flex flex-col items-center px-8 py-4 bg-yellow-300 text-gray-100 font-bold rounded-lg'>
@@ -140,10 +141,9 @@ const ReservationConfirm = () => {
           </div>
         </div>
       </div>
-      <Dialog isOpen={showDialog} onClose={() => setShowDialog(false)}>
-        {/* 对话框内容 */}
 
-        <div className=' max-w-[90%] space-y-1 flex flex-col items-start'>
+      <Dialog isOpen={showDialog} onClose={() => setShowDialog(false)}>
+        <div className=' space-y-1 flex flex-col items-start'>
           <h2>
             <span className='font-semibold mr-4'>Time:</span>
             {date + ' ' + time}
@@ -166,10 +166,6 @@ const ReservationConfirm = () => {
           </div>
         </div>
 
-        {/* 其他需要显示的内容 */}
-        {/* 在这里添加你想要在对话框中显示的信息 */}
-
-        {/* 操作按钮 */}
         <div className='flex justify-center mt-6 '>
           <button
             onClick={handleConfirm}

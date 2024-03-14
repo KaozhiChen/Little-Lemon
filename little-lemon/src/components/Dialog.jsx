@@ -6,7 +6,7 @@ const Dialog = ({ isOpen, onClose, children }) => {
   }
 
   return (
-    <div className='fixed top-0 left-0 px-4 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50'>
+    <div className='fixed top-0 px-4 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50'>
       <div className='bg-white rounded-lg p-8 max-w-md'>
         <div className='flex justify-between items-start'>
           <h2 className='text-xl font-semibold mb-4'>Reservation Details</h2>
