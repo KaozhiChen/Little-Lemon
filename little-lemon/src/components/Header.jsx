@@ -3,15 +3,19 @@ import Logo from '../assets/Logo.svg';
 import Hamburger from '../assets/hamburger.svg';
 import Close from '../assets/x-mark.svg';
 import NavItem from './NavItem';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Header = () => {
   const [showMenu, setMenu] = useState(false);
   const clickMenu = () => {
     setMenu(!showMenu);
   };
   return (
     <div className='flex justify-between items-center p-4 max-w-[1240px] mx-auto h-24 text-1'>
-      <img src={Logo} alt='logo' />
+      <Link to='/'>
+        <img src={Logo} alt='logo' />
+      </Link>
+
       <ul className='md:flex hidden font-semibold text-gray-700'>
         <NavItem to='/' pageName='Home'></NavItem>
         <NavItem to='/about' pageName='About'></NavItem>
@@ -52,4 +56,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

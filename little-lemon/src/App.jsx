@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import { Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import About from './pages/About';
@@ -12,7 +12,7 @@ import ReservationConfirm from './pages/ReservationConfirm';
 function App() {
   return (
     <>
-      <Navbar />
+      <Header />
       <Routes>
         <Route path='/' element={<Homepage />}></Route>
         <Route path='/about' element={<About />}></Route>
