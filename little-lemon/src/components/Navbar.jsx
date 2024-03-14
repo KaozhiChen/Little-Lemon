@@ -16,7 +16,7 @@ const Navbar = () => {
         <NavItem to='/' pageName='Home'></NavItem>
         <NavItem to='/about' pageName='About'></NavItem>
         <NavItem to='/menu' pageName='Menu'></NavItem>
-        <NavItem to='/reservation' pageName='Reservations'></NavItem>
+        <NavItem to='/reservations' pageName='Reservations'></NavItem>
         <NavItem to='/login' pageName='Login'></NavItem>
       </ul>
 
