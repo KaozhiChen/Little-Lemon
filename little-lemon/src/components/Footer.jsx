@@ -7,7 +7,7 @@ import Home from '../assets/home.svg';
 const Footer = () => {
   return (
     <>
-      <div className='bg-green-700 flex flex-col py-20  space-y-10'>
+      <div className='bg-primary flex flex-col py-20  space-y-10'>
         <div className=''>
           <img
             src={Logo}

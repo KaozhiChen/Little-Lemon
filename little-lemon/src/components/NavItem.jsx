@@ -13,10 +13,10 @@ const NavItem = ({ type, to, pageName }) => {
       <NavLink
         to={to}
         className={({ isActive }) =>
-          isActive ? 'bg-green-700  rounded-md text-white mx-2 ' : 'mx-2'
+          isActive ? 'bg-primary  rounded-md text-white mx-2 ' : 'mx-2'
         }
       >
-        <li className='hover:text-gray-300 active:bg-green-600 px-4 py-2 text-center rounded-md hover:bg-green-700 cursor-pointer'>
+        <li className='hover:text-gray-300 active:bg-primary px-4 py-2 text-center rounded-md hover:bg-green-600 cursor-pointer'>
           {pageName}
         </li>
       </NavLink>

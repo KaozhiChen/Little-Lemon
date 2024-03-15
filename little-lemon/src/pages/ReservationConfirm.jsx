@@ -70,15 +70,15 @@ const ReservationConfirm = () => {
 
   return (
     <>
-      <div className='bg-green-600 py-4'>
+      <div className='bg-primary py-4'>
         <h1 className='text-center font-semibold text-xl text-gray-100'>
           Reservation Details
         </h1>
       </div>
 
       <div className='px-4'>
-        <div className='bg-green-600 my-4 rounded-lg px-4 py-8 flex items-center justify-between'>
-          <div className='flex flex-col items-center px-8 py-4 bg-yellow-300 text-gray-100 font-bold rounded-lg'>
+        <div className='bg-primary my-4 rounded-lg px-4 py-8 flex sm:flex-col sm:space-y-8 items-center justify-between'>
+          <div className='flex flex-col items-center px-8 py-4 bg-primary2 text-gray-500 font-bold rounded-lg'>
             <span>{date}</span>
             <span>{time}</span>
           </div>
@@ -92,6 +92,7 @@ const ReservationConfirm = () => {
             </div>
           </div>
         </div>
+
         <div>
           <h1 className='text-gray-500 font-semibold text-2xl mb-2'>
             Contact Details
@@ -161,7 +162,7 @@ const ReservationConfirm = () => {
                   to='/'
                 >
                   <button
-                    className='bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4 mr-4'
+                    className='bg-primary2 hover:bg-yellow-400 rounded-3xl font-bold text-gray-600 py-2 px-4 mr-4'
                     style={{ minWidth: '120px' }}
                   >
                     Cancel
@@ -175,7 +176,7 @@ const ReservationConfirm = () => {
                   <button
                     className={
                       isValid
-                        ? 'bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
+                        ? 'bg-primary2 hover:bg-yellow-400 rounded-3xl font-bold text-gray-600 py-2 px-4'
                         : 'bg-gray-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
                     }
                     style={{ minWidth: '120px' }}
@@ -217,7 +218,7 @@ const ReservationConfirm = () => {
         <div className='flex justify-center mt-6 '>
           <button
             onClick={handleConfirm}
-            className='bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4'
+            className='bg-primary2 rounded-3xl font-bold text-gray-600 py-2 px-4'
           >
             Confirm
           </button>

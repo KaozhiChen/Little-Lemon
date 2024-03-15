@@ -23,16 +23,6 @@ function App() {
           path='/reservation-confirm'
           element={<ReservationConfirm />}
         ></Route>
-        {/* <Route
-          path="/reservations"
-          element={
-            <ReservationsPage
-              availableTimes={availableTimes}
-              updateTimes={updateTimes}
-            />
-          }
-        ></Route>
-        <Route path="/confirmed" element={<ConfirmedBookingPage />} /> */}
       </Routes>
       <Footer />
     </>

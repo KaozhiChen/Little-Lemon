@@ -136,7 +136,7 @@ const Reservations = () => {
           <div className='flex justify-between items-center'>
             <Link className='flex-grow flex items-center justify-center' to='/'>
               <button
-                className='bg-yellow-300 rounded-3xl font-bold text-gray-600 py-2 px-4 mr-4'
+                className='bg-primary2 hover:bg-yellow-400 rounded-3xl font-bold text-gray-600 py-2 px-4 mr-4'
                 style={{ minWidth: '120px' }}
               >
                 Cancel
@@ -146,7 +146,7 @@ const Reservations = () => {
               <button
                 className={
                   isFormValid
-                    ? 'rounded-3xl font-bold text-gray-600 py-2 px-4 bg-yellow-300'
+                    ? 'rounded-3xl font-bold text-gray-600 py-2 px-4 bg-primary2 hover:bg-yellow-400'
                     : 'rounded-3xl font-bold text-gray-600 py-2 px-4 bg-gray-400'
                 }
                 style={{ minWidth: '120px' }}

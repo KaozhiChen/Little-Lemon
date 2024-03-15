@@ -10,11 +10,11 @@ const Card = () => {
           <h3>Greel salad</h3>
           <span className='text-yellow-500 '>$12.99</span>
         </div>
-        <p className='text-base p-4 text-gray-700'>
+        <p className='text-base p-4 text-gray-600'>
           Our Bruschetta is made from grilled bread that has been smeared with
           garlic and seasoned with salt and olive oil.
         </p>
-        <button className='bg-yellow-300 hover:bg-yellow-400 hover:text-gray-600 rounded-3xl font-bold text-gray-600 py-2 px-4 '>
+        <button className='bg-primary2 hover:bg-yellow-500 rounded-3xl font-bold text-gray-600 py-2 px-4 '>
           Order Now
         </button>
       </div>
